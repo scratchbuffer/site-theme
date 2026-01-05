@@ -1,0 +1,13 @@
+{{ define "main" }}
+
+    {{ partial "pages-list-item.html" (dict "page" . "titleElement" "h1") }}
+
+    {{- if .Content }}
+      <div class="home-content">
+          {{ .Content }}
+      </div>
+      ---
+    {{- end }}
+    {{ partial "section-pages-list.html" (dict "page" .) }}
+
+{{ end }}

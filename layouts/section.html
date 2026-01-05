@@ -1,0 +1,15 @@
+{{ define "main" }}
+
+    {{ partial "breadcrumbs.html" (dict "page" .) }}
+
+    {{ partial "pages-list-item.html" (dict "page" . "titleElement" "h1") }}
+
+    {{- if .Content }}
+      <div class="section-content">
+          {{ .Content }}
+      </div>
+      ---
+    {{- end }}
+    {{ partial "section-pages-list.html" (dict "page" .) }}
+
+{{ end }}

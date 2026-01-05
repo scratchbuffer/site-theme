@@ -1,0 +1,37 @@
+{{/*
+Renders a list of direction child Sections, then RegularPages for a Hugo section
+
+@context {page} page The current Section to render.
+
+@example: {{ partial "section-pages-list.html" . }}
+*/}}
+
+{{- $page := .page }}
+<div class="section-pages-list">
+
+    {{- if $page.Sections }} <!-- List direct child Sections-->
+    <div class="pages-list">
+      <div class="pages-list-header">
+        <h2>Sections</h2>
+      </div>
+      <ul>
+          {{- range sort $page.Sections ".Params.weight" }}
+            <li>{{ partial "pages-list-item.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
+          {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+
+    {{- if $page.RegularPages }} <!-- List direct child Pages which are not Sections-->
+    <div class="pages-list">
+      <div class="pages-list-header">
+        <h2>Pages</h2>
+      </div>
+      <ul>
+          {{- range sort $page.RegularPages ".Params.weight" }}
+            <li>{{ partial "pages-list-item.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
+          {{- end }}
+      </ul>
+    </div>
+    {{- end }}
+</div>

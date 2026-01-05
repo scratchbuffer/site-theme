@@ -1,0 +1,20 @@
+{{/*
+Renders a list of direction child Sections, then RegularPages for a Hugo section
+
+@context {page} page The current Section to render.
+
+@example: {{ partial "taxonomy-pages-list.html" . }}
+*/}}
+
+{{- $page := .page }}
+<div class="taxonomy-terms-list">
+    {{ if $page.Pages }}
+      <div class="terms-list">
+        <ul>
+            {{ range sort $page.Pages ".Params.weight" }}
+              <li>{{ partial "pages-list-item.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
+            {{ end }}
+        </ul>
+      </div>
+    {{ end }}
+</div>

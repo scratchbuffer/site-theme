@@ -1,0 +1,42 @@
+<div class="header">
+    <h1 id="header-site-title"><a href="/">{{ .Site.Params.site.title.header.textPrefix}}{{ site.Title }}</a></h1>
+    <div>
+        <fieldset id="color-scheme-selector">
+            <label for="color-scheme-selector-light" class="color-scheme-option">
+                <span class="color-scheme-icon-light">○</span>
+                <span class="color-scheme-icon-dark">●</span>
+                <input type="radio" name="color-scheme" id="color-scheme-selector-light" value="light">
+            </label>
+            <label for="color-scheme-selector-auto" class="color-scheme-option">
+                <span class="color-scheme-icon-light">⛭</span>
+                <span class="color-scheme-icon-dark">⛭</span>
+                <input type="radio" name="color-scheme" id="color-scheme-selector-auto" value="auto" checked>
+            </label>
+            <label for="color-scheme-selector-dark" class="color-scheme-option">
+                <span class="color-scheme-icon-light">●</span>
+                <span class="color-scheme-icon-dark">○</span>
+                <input type="radio" name="color-scheme" id="color-scheme-selector-dark" value="dark">
+            </label>
+        </fieldset>
+        <script>
+            const colorSchemeSelector = document.getElementById('color-scheme-selector')
+            colorSchemeSelector.addEventListener('change', event => {
+                localStorage.setItem('color-scheme', event.target.value)
+            })
+            window.addEventListener('load', _ => {
+                const scheme = localStorage.getItem('color-scheme') || 'auto'
+                document.getElementById('color-scheme-selector-auto').checked = true;
+                switch (scheme) {
+                    case 'light':
+                        document.getElementById('color-scheme-selector-light').checked = true;
+                        document.getElementById('color-scheme-selector-auto').checked = false;
+                        break;
+                    case 'dark':
+                        document.getElementById('color-scheme-selector-dark').checked = true;
+                        document.getElementById('color-scheme-selector-auto').checked = false;
+                        break;
+                }
+            })
+        </script>
+    </div>
+</div>
