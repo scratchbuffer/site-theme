@@ -1,4 +1,4 @@
-{{- with resources.Get "css/style.css" }}
+{{- with resources.Get "css/style.tailwind.css" }}
     {{- if hugo.IsDevelopment }}
       <link rel="stylesheet" href="{{ .RelPermalink }}">
     {{- else }}
