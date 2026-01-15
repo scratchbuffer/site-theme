@@ -4,16 +4,21 @@
 
     <div class="page-header">
       <h1>{{ .Title }}</h1>
-      <p class="page-description">{{ .Description | markdownify }}</p>
+
+      <div class="page-description">
+      <span >{{ .Description | markdownify }}</span>
 
         {{ $dateMachine := .Date | time.Format "2006-01-02" }}
         {{ $dateHuman := .Date | time.Format ":date_long" }}
       <!--    <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>-->
+      </div>
+      <div class="page-header-date">
       Published
-      <span class="page-header-date">
+      <span >
         <time datetime="{{ $dateMachine }}">{{ .Page.Date.Format "2006-01-02" }}</time> &#183;
         <time datetime="{{ $dateMachine }}">Updated {{ .Page.Lastmod.Format "2006-01-02" }}</time>
     </span>
+      </div>
 
     </div>
 

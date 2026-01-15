@@ -131,12 +131,12 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     header {
-        @apply pt-8;
+        @apply pt-4;
 
         #header-site-title {
-            @apply pt-2 pb-2;
+            @apply pt-4 pb-4;
             @apply text-4xl;
-            font-family: 'Open Sans', var(--font-sans);
+            font-family: 'Inter', var(--font-sans);
             @apply font-bold;
         }
     }
@@ -147,16 +147,21 @@ html:has(#color-scheme-selector-light:checked) {
 
     .breadcrumbs {
         @apply pt-8 pb-2;
+
+    }
+
+    .breadcrumbs-separator, .breadcrumbs-item {
         @apply text-sm;
+        font-family: 'Inter', var(--font-sans);
         @apply font-light;
     }
 
     main {
-        h1, h2, h3, h4, h5, h6, .page-description {
+        h1, h2, h3, h4, h5, h6 {
             @apply pt-4;
             @apply pb-2;
-            font-family: 'Open Sans', var(--font-sans);
-            @apply font-medium;
+            font-family: 'Inter', var(--font-sans);
+            @apply font-semibold;
         }
 
         h1 {
@@ -172,12 +177,19 @@ html:has(#color-scheme-selector-light:checked) {
         }
 
         .page-description {
-            @apply text-xl;
+            @apply pt-4 pb-2;
+            @apply text-2xl;
+            font-family: 'Inter', var(--font-sans);
+            @apply font-semibold;
+        }
+
+        .page-header-date, .terms {
+            @apply pt-2 pb-2;
         }
 
         p {
-            @apply pt-4;
-            @apply pb-2;
+            @apply pt-2;
+            @apply pb-1;
         }
     }
 
@@ -203,5 +215,17 @@ html:has(#color-scheme-selector-light:checked) {
 
     main p, main blockquote, main pre  {
         @apply overflow-auto;
+    }
+
+    main pre {
+        @apply mb-4;
+        @apply p-4;
+        /*@apply whitespace-pre-wrap;*/
+        @apply text-sm;
+    }
+
+    main code, main pre {
+        font-family: monospace;
+        @apply text-sm;
     }
 }

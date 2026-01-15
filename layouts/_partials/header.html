@@ -15,19 +15,30 @@
       </label>
     </fieldset>
     <script>
-        const colorSchemeSelector = document.getElementById('color-scheme-selector')
-        colorSchemeSelector.addEventListener('change', event => {
-            localStorage.setItem('color-scheme', event.target.value)
-        })
-        const scheme = localStorage.getItem('color-scheme') || 'auto'
-        switch (scheme) {
-            case 'light':
-                document.getElementById('color-scheme-selector-light').checked = true;
-                break;
-            case 'dark':
-                document.getElementById('color-scheme-selector-dark').checked = true;
-                break;
-        }
+      const colorSchemeSelector = document.getElementById("color-scheme-selector");
+      colorSchemeSelector.addEventListener("change", (event) => {
+          localStorage.setItem("color-scheme", event.target.value);
+      });
+      const scheme = localStorage.getItem("color-scheme") || "auto";
+      switch (scheme) {
+        case "light":
+          document.getElementById("color-scheme-selector-light").checked = true;
+          break;
+        case "dark":
+          document.getElementById("color-scheme-selector-dark").checked = true;
+          break;
+        case "auto":
+          switch (true) {
+            case window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: light)").matches:
+              document.getElementById("color-scheme-selector-light").checked = true;
+              break;
+            case window.matchMedia &&
+              window.matchMedia("(prefers-color-scheme: dark)").matches:
+              document.getElementById("color-scheme-selector-dark").checked = true;
+              break;
+          }
+      }
     </script>
   </div>
 </div>
