@@ -364,13 +364,23 @@ html:has(#color-scheme-selector-light:checked) {
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   ul {
-    padding-inline: calc(var(--spacing) * 8);
-    padding-bottom: calc(var(--spacing) * 4);
+    padding-left: calc(var(--spacing) * 8);
+    padding-bottom: calc(var(--spacing) * 2);
     list-style-type: disc;
   }
-  ul h1, ul h2, ul h3, ul h4, ul h5, ul h6 {
-    padding-top: calc(var(--spacing) * 2);
-    padding-bottom: calc(var(--spacing) * 1);
+  ul {
+    h1, h2, h3, h4, h5, h6 {
+      padding-top: calc(var(--spacing) * 2);
+      padding-bottom: calc(var(--spacing) * 1);
+    }
+  }
+  ol {
+    padding-left: calc(var(--spacing) * 8);
+    padding-bottom: calc(var(--spacing) * 2);
+    list-style-type: decimal;
+  }
+  ol ol {
+    list-style-type: lower-roman;
   }
 }
 @property --tw-rotate-x {

@@ -228,12 +228,23 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     ul {
-        @apply px-8;
-        @apply pb-4;
+        @apply pl-8;
+        @apply pb-2;
         @apply list-disc;
     }
-    ul h1, ul h2, ul h3, ul h4, ul h5, ul h6 {
-        @apply pt-2 pb-1;
+    ul {
+        h1, h2, h3, h4, h5, h6 {
+            @apply pt-2 pb-1;
+        }
+    }
+
+    ol {
+        @apply pl-8;
+        @apply pb-2;
+        @apply list-decimal;
+    }
+    ol ol {
+        @apply list-[lower-roman];
     }
 }
 /**/
