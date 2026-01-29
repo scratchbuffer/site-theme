@@ -1,5 +1,13 @@
 {{/*
-Renders a list of direction child Sections, then RegularPages for a Hugo section
+Renders a list of direct child Sections or RegularPages for a Hugo section.
+
+Specifically, this renders one of the following options:
+1. If this a Section with *any* child Sections, then each child Section *and* its child RegularPages are listed.
+2. Otherwise, *all* child RegularPages are listed - any child Sections are ommitted.
+
+This is specific to the ScratchBuffer content structure which has the following properties:
+* A top-level section only has child sections, no direct child pages
+* A second-level section only has child pages, no further child sections.
 
 @context {page} page The current Section to render.
 
@@ -7,31 +15,64 @@ Renders a list of direction child Sections, then RegularPages for a Hugo section
 */}}
 
 {{- $page := .page }}
+{{- $articleType := "article" }}
+{{- $notecardType := "notecard" }}
+{{- $regularPageTypes := slice $articleType $notecardType }}
+{{- $pageTypesListHeader := dict $articleType "Articles" $notecardType "Note Cards"}}
+
 <div class="section-pages-list">
 
-    {{- if $page.Sections }} <!-- List direct child Sections-->
-    <div class="pages-list">
-      <div class="pages-list-header">
-        <h2>Sections</h2>
-      </div>
-      <ul>
-          {{- range sort $page.Sections ".Params.weight" }}
-            <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
-          {{- end }}
-      </ul>
-    </div>
-    {{- end }}
+    {{- if $page.Sections }}
+      <!--
+      This is a list page for a Section containing further Sections.
+      The content structure does not use Sections with both direct child Sections and direct child RegularPages
+      -->
+      <div class="sections-list">
+      {{- range sort $page.Sections ".Params.weight" }}
+          {{ $page := . }}
+          {{- if $page.RegularPages }}
+              {{ partial "page-header-simple.html" (dict "page" $page "titleElement" "h2") }}
+              <ul>
+              {{- range $regularPageTypes }}
+                <li>
 
-    {{- if $page.RegularPages }} <!-- List direct child Pages which are not Sections-->
-    <div class="pages-list">
-      <div class="pages-list-header">
-        <h2>Pages</h2>
+                <div class="pages-list">
+                  {{- $pageList := (sort (where $page.RegularPages "Type" "eq" .) ".Params.weight")}}
+                  {{- if gt (len $pageList) 0 }}
+                    <div class="pages-list-header">
+                      <h3>{{ index $pageTypesListHeader . }}</h3>
+                      <ul>
+                          {{- range $pageList }}
+                            <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h4" "descElement" "h5") }}</li>
+                          {{- end }}
+                      </ul>
+                    </div>
+                  {{ end }}
+              {{ end }}
+              </div>
+                </li>
+              </ul>
+
+          {{ end }}
+          </div>
+      {{ end }}
+
+
+    {{- else if $page.RegularPages }} <!-- List direct child RegularPages which are not Sections-->
+      <div class="pages-list">
+        {{- range $regularPageTypes }}
+          {{- $pageList := (sort (where $page.RegularPages "Type" "eq" .) ".Params.weight")}}
+          {{- if gt (len $pageList) 0 }}
+          <div class="pages-list-header">
+            <h2>{{ index $pageTypesListHeader . }}</h2>
+            <ul>
+                {{- range $pageList }}
+                  <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
+                {{- end }}
+            </ul>
+          </div>
+          {{ end }}
+        {{ end }}
       </div>
-      <ul>
-          {{- range sort $page.RegularPages ".Params.weight" }}
-            <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
-          {{- end }}
-      </ul>
-    </div>
     {{- end }}
 </div>

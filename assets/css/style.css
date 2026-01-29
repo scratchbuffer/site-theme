@@ -157,6 +157,10 @@ html:has(#color-scheme-selector-light:checked) {
         @apply text-2xl;
     }
 
+    h4 {
+        @apply text-xl;
+    }
+
     a:hover {
         @apply underline;
     }
@@ -273,6 +277,42 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
 
     /**/
+    /* List page layout section */
+    /**/
+    .sections-list {
+        ul {
+            @apply pl-4;
+            @apply pb-2;
+            @apply list-none;
+        }
+        ul ul {
+            @apply pl-8;
+            @apply pb-2;
+            @apply list-disc;
+        }
+    }
+    .pages-list {
+        ul {
+            @apply pl-4;
+            @apply pb-2;
+            @apply list-disc;
+        }
+        ul ul {
+            @apply pl-8;
+            @apply pb-2;
+            @apply list-disc;
+        }
+    }
+    .page-header-simple-description {
+        @apply p-0;
+        @apply font-normal;
+        @apply italic;
+    }
+    /**/
+    /* End page layout section */
+    /**/
+
+    /**/
     /* Single page header section */
     /**/
     .page-description {
@@ -298,7 +338,6 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     .terms {
-
         @apply pt-2 pb-1;
         @apply text-sm;
     }
