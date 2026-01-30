@@ -27,36 +27,56 @@ This is specific to the ScratchBuffer content structure which has the following 
       This is a list page for a Section containing further Sections.
       The content structure does not use Sections with both direct child Sections and direct child RegularPages
       -->
-      <div class="sections-list">
+      {{- $pagesByType := dict }}
+
       {{- range sort $page.Sections ".Params.weight" }}
-          {{ $page := . }}
-          {{- if $page.RegularPages }}
-              {{ partial "page-header-simple.html" (dict "page" $page "titleElement" "h2") }}
-              <ul>
-              {{- range $regularPageTypes }}
-                <li>
+        {{ $page := . }}
 
-                <div class="pages-list">
-                  {{- $pageList := (sort (where $page.RegularPages "Type" "eq" .) ".Params.weight")}}
-                  {{- if gt (len $pageList) 0 }}
-                    <div class="pages-list-header">
-                      <h3>{{ index $pageTypesListHeader . }}</h3>
-                      <ul>
-                          {{- range $pageList }}
-                            <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h4" "descElement" "h5") }}</li>
-                          {{- end }}
-                      </ul>
-                    </div>
-                  {{ end }}
-              {{ end }}
-              </div>
-                </li>
-              </ul>
 
+        {{- $pagesByType := dict }}
+
+        {{- range $regularPageTypes }}
+          {{- $pageListForType := (sort (where $page.RegularPages "Type" "eq" .) ".Params.weight")}}
+          {{- if gt (len $pageListForType) 0 }}
+            {{- $pagesByType = merge $pagesByType (dict . $pageListForType) }}
           {{ end }}
-          </div>
-      {{ end }}
+        {{ end }}
 
+        <!-- Now do things for each Type if we have them -->
+        {{ if gt (len $pagesByType) 0 }}
+          <!--
+          We at least have RegularPages for one Type in this Section.
+          Show the Section header and start the list.
+          -->
+          <div class="sections-list">
+            <div class="sections-list-header">
+            <a href="{{ $page.RelPermalink }}">
+              <h2>{{ $page.Title }}</h2>
+            </a>
+            </div>
+            <ul>
+                <!-- Create a nested list for each Type that has of RegularPages -->
+                {{- range $regularPageTypes }} <!-- Ensure we go in desired order as dict is unordered -->
+                  {{ $pageType := . }}
+                  {{- $pageListForType := index $pagesByType $pageType }}
+                  {{- with $pageListForType }}
+                  <div class="pages-list">
+                  <div class="pages-list-header">
+                    <h3>{{ index $pageTypesListHeader $pageType }}</h3>
+                    <ul>
+                        {{- range $pageListForType }}
+                          <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h4" "descElement" "h5") }}</li>
+                        {{- end }}
+                    </ul>
+                  </div>
+                </div>
+                    {{ end }}
+
+                {{ end }}
+            </ul>
+          </div>
+        {{ end }}
+      {{ end }}
 
     {{- else if $page.RegularPages }} <!-- List direct child RegularPages which are not Sections-->
       <div class="pages-list">
