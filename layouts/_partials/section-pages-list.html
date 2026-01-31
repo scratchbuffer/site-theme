@@ -65,7 +65,12 @@ This is specific to the ScratchBuffer content structure which has the following 
                     <h3>{{ index $pageTypesListHeader $pageType }}</h3>
                     <ul>
                         {{- range $pageListForType }}
-                          <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h4" "descElement" "h5") }}</li>
+                          <li>
+                            {{
+                              partial "page-header-simple.html"
+                              (dict "page" . "titleElement" "h4" "descElement" "h5" "titleIsLink" true)
+                            }}
+                          </li>
                         {{- end }}
                     </ul>
                   </div>
@@ -87,7 +92,7 @@ This is specific to the ScratchBuffer content structure which has the following 
             <h2>{{ index $pageTypesListHeader . }}</h2>
             <ul>
                 {{- range $pageList }}
-                  <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
+                  <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4" "titleIsLink" true) }}</li>
                 {{- end }}
             </ul>
           </div>
