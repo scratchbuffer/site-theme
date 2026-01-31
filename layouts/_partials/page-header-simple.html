@@ -8,20 +8,26 @@ Defaults to "h2", as there is likely already an h1 as the title on the page or a
 Defaults to "h3", to nest one size below the default h2 titleElement.
 
 @example: {{ partial "page-header-simple.html" (dict "page" .) }}
+@example: {{ partial "page-header-simple.html" (dict "page" . titleIsLink true) }}
 @example: {{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}
 */}}
 
 {{- $page := .page }}
 {{- $titleElement := default "h2" .titleElement }}
+{{- $titleIsLink := default false .titleIsLink }}
 {{- $descElement := default "h3" .descElement }}
 {{- with . }}
   <div class="page-header-simple">
     {{- $titleOpenTag := printf "<%s class=\"page-header-simple-title\">" $titleElement | safeHTML }}
     {{- $titleCloseTag := printf "</%s>" $titleElement | safeHTML }}
 
+    {{- if $titleIsLink }}
     <a href="{{ $page.RelPermalink }}">
+    {{ end }}
       {{ $titleOpenTag }}{{ $page.Title }}{{ $titleCloseTag }}
+    {{- if $titleIsLink }}
     </a>
+    {{ end }}
 
     {{- if $page.Description }}
       {{- $descOpenTag := printf "<%s class=\"page-header-simple-description\">" $descElement | safeHTML }}
