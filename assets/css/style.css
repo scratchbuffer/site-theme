@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Work+Sans:wght@100..900');
 
 @import "tailwindcss";
 
@@ -126,6 +126,10 @@ html:has(#color-scheme-selector-light:checked) {
 /**/
 @layer base {
 
+    :root {
+        font-family: 'Inter', var(--font-sans);
+    }
+
     body {
         @apply max-w-3xl;
         @apply m-auto;
@@ -135,8 +139,8 @@ html:has(#color-scheme-selector-light:checked) {
     h1, h2, h3, h4, h5, h6 {
         @apply pt-4;
         @apply pb-2;
-        font-family: 'Inter', var(--font-sans);
-        @apply font-semibold;
+        font-family: 'Work Sans', var(--font-sans);
+        @apply font-medium;
 
         code, pre {
             font-size: inherit;
@@ -210,13 +214,21 @@ html:has(#color-scheme-selector-light:checked) {
     /* Top header section (above nav bar) */
     /**/
     header {
-        @apply pt-4;
+        @apply pt-6;
 
-        #header-site-title {
+        #header-site-title-outer {
             @apply pt-4 pb-4;
+
+            a {
+                @apply no-underline;
+            }
+
             @apply text-4xl;
+            font-family: 'Work Sans', var(--font-mono);
+            @apply font-semibold;
+        }
+        #header-site-title-prefix {
             font-family: 'Inter', var(--font-sans);
-            @apply font-bold;
         }
     }
     /**/
@@ -279,35 +291,90 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
     /* List page layout section */
     /**/
+    .page-header-simple {
+        @apply pb-4;
+    }
+    .page-header-simple-title {
+        @apply pt-8 pb-2;
+    }
+    .page-header-simple-description {
+        @apply p-0;
+        @apply font-normal;
+        /*@apply italic;*/
+    }
+
     .sections-list {
+        /*.sections-list-header {*/
+        /*    @apply pt-0 pb-0;*/
+        /*}*/
+        h1, h2, h3, h4, h5, h6 {
+            @apply pt-2 pb-1;
+        }
+
+        .pages-list  {
+            .pages-list-type-header {
+                @apply pt-1 pb-0;
+                @apply text-lg;
+                @apply font-light;
+                font-family: 'Inter', var(--font-sans);
+            }
+
+            .pages-list-item-title {
+                @apply text-lg;
+                @apply font-medium
+            }
+            .pages-list-item-description {
+                @apply pt-0 pb-0;
+                @apply text-sm;
+                @apply font-light;
+                @apply italic;
+                font-family: 'Inter', var(--font-sans);
+            }
+        }
+
         ul {
-            @apply pl-4;
+            @apply pl-0;
             @apply pb-2;
             @apply list-none;
         }
         ul ul {
-            @apply pl-8;
+            @apply pl-6;
             @apply pb-2;
             @apply list-disc;
         }
     }
     .pages-list {
+
+        h1, h2, h3, h4, h5, h6 {
+            @apply pt-2 pb-1;
+        }
+
+        .pages-list-type-header {
+            @apply text-xl;
+            @apply font-normal;
+            font-family: 'Inter', var(--font-sans);
+        }
+
+        .pages-list-item-title {
+            @apply pt-0 pb-0;
+            @apply text-xl;
+        }
+
+        .pages-list-item-description {
+            @apply pt-0 pb-0;
+            @apply text-base;
+            @apply font-light;
+            @apply italic;
+            font-family: 'Inter', var(--font-sans);
+        }
+
         ul {
-            @apply pl-4;
-            @apply pb-2;
-            @apply list-disc;
-        }
-        ul ul {
-            @apply pl-8;
+            @apply pl-6;
             @apply pb-2;
             @apply list-disc;
         }
     }
-    .page-header-simple-description {
-        @apply p-0;
-        @apply font-normal;
-        @apply italic;
-    }
+
     /**/
     /* End page layout section */
     /**/
@@ -315,21 +382,21 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
     /* Single page header section */
     /**/
-    .page-description {
-        @apply pt-4 pb-2;
-        @apply text-2xl;
+    .page-header-description {
+        @apply pt-2 pb-0;
+        @apply text-xl;
         font-family: 'Inter', var(--font-sans);
-        @apply font-semibold;
+        /*@apply font-semibold;*/
     }
 
     .page-header-author {
-        @apply pt-1 pb-0;
+        @apply pt-2 pb-0;
         @apply text-sm;
         @apply font-semibold;
     }
 
     .page-header-date {
-        @apply pt-1 pb-0;
+        @apply pt-2 pb-0;
         @apply text-sm;
     }
     .page-header-hr-bottom {
@@ -338,12 +405,12 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     .terms {
-        @apply pt-2 pb-1;
+        @apply pt-4 pb-2;
         @apply text-sm;
     }
     .terms-item {
         /*@apply bg-gray-100; TODO respect color scheme*/
-        @apply p-1;
+        @apply pr-2;
     }
     /**/
     /* End single page header section */
@@ -391,9 +458,11 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
     /* Single page content section */
     /**/
-    /*.page-content {*/
-    /*    @apply pt-4;*/
-    /*}*/
+    .page-content {
+        a {
+            text-decoration: underline;
+        }
+    }
     /*.page-content-hr-bottom {*/
     /*    @apply mt-4 mb-2;*/
     /*    @apply border-gray-400;*/

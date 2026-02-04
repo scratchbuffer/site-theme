@@ -1,5 +1,9 @@
 <div class="header">
-  <span id="header-site-title"><a href="/">{{ .Site.Params.site.title.header.textPrefix}}{{ site.Title }}</a></span>
+  <span id="header-site-title-outer">
+    <a href="/">
+      <span id="header-site-title-prefix">{{ .Site.Params.site.title.header.textPrefix}}</span><span id="header-site-title">{{ site.Title }}</span>
+      </a>
+  </span>
   <div>
     <fieldset id="color-scheme-selector">
       <label for="color-scheme-selector-light" class="color-scheme-option">

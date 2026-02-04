@@ -1,0 +1,39 @@
+{{/*
+Renders a header for the given page, intended for display within a Hugo section.
+
+@context {page} page The current page.
+@context {string} titleElement The HTML element to render the page Title in (h1, h2, etc).
+Defaults to "h2", as there is likely already an h1 as the title on the page or above the list.
+@context {string} descElement The HTML element to render the page Description in (h1, h2, etc).
+Defaults to "h3", to nest one size below the default h2 titleElement.
+
+@example: {{ partial "pages-list-item.html" (dict "page" .) }}
+@example: {{ partial "pages-list-item.html" (dict "page" . titleIsLink true) }}
+@example: {{ partial "pages-list-item.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}
+*/}}
+
+{{- $page := .page }}
+{{- $titleElement := default "h2" .titleElement }}
+{{- $titleIsLink := default false .titleIsLink }}
+{{- $descElement := default "h3" .descElement }}
+{{- with . }}
+  <div class="pages-list-item">
+    {{- $titleOpenTag := printf "<%s class=\"pages-list-item-title\">" $titleElement | safeHTML }}
+    {{- $titleCloseTag := printf "</%s>" $titleElement | safeHTML }}
+
+    {{- if $titleIsLink }}
+    <a href="{{ $page.RelPermalink }}">
+    {{ end }}
+      {{ $titleOpenTag }}{{ $page.Title }}{{ $titleCloseTag }}
+    {{- if $titleIsLink }}
+    </a>
+    {{ end }}
+
+    {{- if $page.Description }}
+      {{- $descOpenTag := printf "<%s class=\"pages-list-item-description\">" $descElement | safeHTML }}
+      {{- $descCloseTag := printf "</%s>" $descElement | safeHTML }}
+      {{ $descOpenTag }}{{ $page.Description | markdownify }}{{ $descCloseTag }}
+    {{- end }}
+
+  </div>
+{{- end }}

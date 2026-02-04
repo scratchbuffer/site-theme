@@ -12,6 +12,7 @@ Defaults to ">".
 {{ $page := .page }}
 {{- $separator := default ">" .separator }}
 
+{{ if (gt (len $page.Ancestors) 1)  }}
 <div class="breadcrumbs">
     <div class="breadcrumbs-items">
         {{ $list := ($page.Ancestors.Reverse) }}
@@ -24,3 +25,4 @@ Defaults to ">".
         {{ end }}
     </div>
 </div>
+{{ end }}
