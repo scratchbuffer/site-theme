@@ -8,7 +8,8 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-gray-400: oklch(70.7% 0.022 261.325);
+    --color-gray-100: oklch(96.7% 0.003 264.542);
+    --color-gray-300: oklch(87.2% 0.01 258.338);
     --spacing: 0.25rem;
     --container-3xl: 48rem;
     --text-xs: 0.75rem;
@@ -388,10 +389,13 @@ html:has(#color-scheme-selector-light:checked) {
   .nav-item {
     display: inline-flex;
     padding-right: calc(var(--spacing) * 4);
+    font-size: var(--text-lg);
+    line-height: var(--tw-leading, var(--text-lg--line-height));
+    font-family: 'Work Sans', var(--font-mono);
   }
   .nav-hr-bottom {
     display: block;
-    border-color: var(--color-gray-400);
+    border-color: var(--color-gray-300);
   }
   .breadcrumbs {
     padding-top: calc(var(--spacing) * 8);
@@ -404,17 +408,22 @@ html:has(#color-scheme-selector-light:checked) {
     --tw-font-weight: var(--font-weight-light);
     font-weight: var(--font-weight-light);
   }
+  .base-hr-bottom {
+    margin-top: calc(var(--spacing) * 8);
+    margin-bottom: calc(var(--spacing) * 4);
+    border-color: var(--color-gray-300);
+  }
   .home-page-header {
     padding-top: calc(var(--spacing) * 4);
   }
-  .page-header-simple {
+  .list-page-header {
     padding-bottom: calc(var(--spacing) * 4);
   }
-  .page-header-simple-title {
-    padding-top: calc(var(--spacing) * 8);
+  .list-page-header-title {
+    padding-top: calc(var(--spacing) * 4);
     padding-bottom: calc(var(--spacing) * 2);
   }
-  .page-header-simple-description {
+  .list-page-header-description {
     padding: calc(var(--spacing) * 0);
     --tw-font-weight: var(--font-weight-normal);
     font-weight: var(--font-weight-normal);
@@ -496,14 +505,14 @@ html:has(#color-scheme-selector-light:checked) {
       list-style-type: disc;
     }
   }
-  .page-header-description {
+  .single-page-header-description {
     padding-top: calc(var(--spacing) * 2);
     padding-bottom: calc(var(--spacing) * 0);
     font-size: var(--text-xl);
     line-height: var(--tw-leading, var(--text-xl--line-height));
     font-family: 'Inter', var(--font-sans);
   }
-  .page-header-author {
+  .single-page-header-author {
     padding-top: calc(var(--spacing) * 2);
     padding-bottom: calc(var(--spacing) * 0);
     font-size: var(--text-sm);
@@ -511,24 +520,25 @@ html:has(#color-scheme-selector-light:checked) {
     --tw-font-weight: var(--font-weight-semibold);
     font-weight: var(--font-weight-semibold);
   }
-  .page-header-date {
+  .single-page-header-date {
     padding-top: calc(var(--spacing) * 2);
     padding-bottom: calc(var(--spacing) * 0);
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
-  .page-header-hr-bottom {
+  .single-page-header-hr-bottom {
     margin-top: calc(var(--spacing) * 4);
     margin-bottom: calc(var(--spacing) * 2);
-    border-color: var(--color-gray-400);
+    border-color: var(--color-gray-300);
   }
   .terms {
     padding-top: calc(var(--spacing) * 4);
-    padding-bottom: calc(var(--spacing) * 2);
+    padding-bottom: calc(var(--spacing) * 0);
     font-size: var(--text-sm);
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .terms-item {
+    background-color: var(--color-gray-100);
     padding-right: calc(var(--spacing) * 2);
   }
   .pagination-single {
@@ -555,7 +565,7 @@ html:has(#color-scheme-selector-light:checked) {
     text-overflow: ellipsis;
   }
   .pagination-single-hr-bottom {
-    border-color: var(--color-gray-400);
+    border-color: var(--color-gray-300);
   }
   .page-content {
     a {

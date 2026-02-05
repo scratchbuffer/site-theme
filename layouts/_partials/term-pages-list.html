@@ -13,7 +13,7 @@ Renders a list of direction child Sections, then RegularPages for a Hugo section
     <div class="pages-list">
       <ul>
           {{- range sort $page.Pages ".Params.weight" }}
-            <li>{{ partial "page-header-simple.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
+            <li>{{ partial "list-page-header.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
           {{- end }}
       </ul>
     </div>

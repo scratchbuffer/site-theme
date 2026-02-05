@@ -12,17 +12,15 @@ Defaults to ">".
 {{ $page := .page }}
 {{- $separator := default ">" .separator }}
 
-{{ if (gt (len $page.Ancestors) 1)  }}
 <div class="breadcrumbs">
     <div class="breadcrumbs-items">
-        {{ $list := ($page.Ancestors.Reverse) }}
-        {{ $len := (len $list) }}
-        {{ range $index, $element := $list }}
-        <span class="breadcrumbs-separator"> {{ $separator }} </span>
-        <span class="breadcrumbs-item"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
-        <!--        {{ if ne (add $index 1) $len }}-->
-        <!--        {{ end }}-->
-        {{ end }}
+      {{ $list := ($page.Ancestors.Reverse) }}
+      {{ $len := (len $list) }}
+      {{ range $index, $element := $list }}
+      <span class="breadcrumbs-separator"> {{ $separator }} </span>
+      <span class="breadcrumbs-item"><a href="{{ .RelPermalink }}">{{ .Title }}</a></span>
+      <!--        {{ if ne (add $index 1) $len }}-->
+      <!--        {{ end }}-->
+      {{ end }}
     </div>
 </div>
-{{ end }}

@@ -2,19 +2,23 @@
 
     {{ partial "breadcrumbs.html" (dict "page" .) }}
 
-    <div class="page-header">
-      <div class="page-header-title">
+    <div class="single-page-header">
+      <div class="single-page-header-title">
         <h1>{{ .Title }}</h1>
       </div>
 
-      <div class="page-header-description">
+      <div class="single-page-header-description">
         <span >{{ .Description | markdownify }}</span>
       </div>
 
         {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
 
-{{/*      <p class="page-header-author">{{ .Site.Params.site.author.name  }}</p>*/}}
-      <div class="page-header-date">
+      <div class="single-page-header-divider">
+        ---
+      </div>
+
+{{/*      <p class="single-page-header-author">{{ .Site.Params.site.author.name  }}</p>*/}}
+      <div class="single-page-header-date">
       Published
           {{ $dateMachine := .Date | time.Format "2006-01-02" }}
 {{/*          {{ $dateHuman := .Date | time.Format ":date_long" }}*/}}
@@ -25,19 +29,16 @@
           </span>
       </div>
 
-{{/*      <hr class="page-header-hr-bottom">*/}}
     </div>
 
-    <div class="page-header-divider-bottom">
-      ---
-    </div>
+    <hr class="single-page-header-hr-bottom">
 
-    <div class="page-content">
+    <div class="single-page-content">
         {{ .Content }}
-{{/*      <hr class="page-content-hr-bottom">*/}}
-      <div class="page-content-divider-bottom">
-        ---
-      </div>
+{{/*      <hr class="single-page-content-hr-bottom">*/}}
+{{/*      <div class="single-page-content-divider-bottom">*/}}
+{{/*        ---*/}}
+{{/*      </div>*/}}
     </div>
 
     {{ partial "pagination-single.html" . }}

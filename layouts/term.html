@@ -2,7 +2,7 @@
 
     {{ partial "breadcrumbs.html" (dict "page" .) }}
 
-    {{ partial "page-header-simple.html" (dict "page" . "titleElement" "h1") }}
+    {{ partial "list-page-header.html" (dict "page" . "titleElement" "h1") }}
 
     {{- if .Content }}
       <div class="term-content">

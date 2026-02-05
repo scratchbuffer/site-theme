@@ -137,8 +137,8 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     h1, h2, h3, h4, h5, h6 {
-        @apply pt-4;
-        @apply pb-2;
+        @apply pt-4 pb-2;
+
         font-family: 'Work Sans', var(--font-sans);
         @apply font-medium;
 
@@ -247,12 +247,14 @@ html:has(#color-scheme-selector-light:checked) {
     .nav-item {
         @apply inline-flex;
         @apply pr-4;
+        @apply text-lg;
+        font-family: 'Work Sans', var(--font-mono);
     }
 
     .nav-hr-bottom {
         @apply block;
         /*@apply mt-4 mb-2;*/
-        @apply border-gray-400;
+        @apply border-gray-300;
     }
     /**/
     /* End nav bar section */
@@ -274,6 +276,11 @@ html:has(#color-scheme-selector-light:checked) {
     /* End breadcrumbs section */
     /**/
 
+    .base-hr-bottom {
+        @apply mt-8 mb-4;
+        @apply border-gray-300;
+    }
+
     /**/
     /* Home page header section */
     /**/
@@ -291,22 +298,19 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
     /* List page layout section */
     /**/
-    .page-header-simple {
+    .list-page-header {
         @apply pb-4;
     }
-    .page-header-simple-title {
-        @apply pt-8 pb-2;
+    .list-page-header-title {
+        @apply pt-4 pb-2;
     }
-    .page-header-simple-description {
+    .list-page-header-description {
         @apply p-0;
         @apply font-normal;
         /*@apply italic;*/
     }
 
     .sections-list {
-        /*.sections-list-header {*/
-        /*    @apply pt-0 pb-0;*/
-        /*}*/
         h1, h2, h3, h4, h5, h6 {
             @apply pt-2 pb-1;
         }
@@ -382,34 +386,34 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
     /* Single page header section */
     /**/
-    .page-header-description {
+    .single-page-header-description {
         @apply pt-2 pb-0;
         @apply text-xl;
         font-family: 'Inter', var(--font-sans);
         /*@apply font-semibold;*/
     }
 
-    .page-header-author {
+    .single-page-header-author {
         @apply pt-2 pb-0;
         @apply text-sm;
         @apply font-semibold;
     }
 
-    .page-header-date {
+    .single-page-header-date {
         @apply pt-2 pb-0;
         @apply text-sm;
     }
-    .page-header-hr-bottom {
+    .single-page-header-hr-bottom {
         @apply mt-4 mb-2;
-        @apply border-gray-400;
+        @apply border-gray-300;
     }
 
     .terms {
-        @apply pt-4 pb-2;
+        @apply pt-4 pb-0;
         @apply text-sm;
     }
     .terms-item {
-        /*@apply bg-gray-100; TODO respect color scheme*/
+        @apply bg-gray-100; /* TODO respect color scheme */
         @apply pr-2;
     }
     /**/
@@ -449,7 +453,7 @@ html:has(#color-scheme-selector-light:checked) {
         text-overflow: ellipsis;
     }
     .pagination-single-hr-bottom {
-        @apply border-gray-400;
+        @apply border-gray-300;
     }
     /**/
     /* End single page pagination section (next/prev) */
@@ -463,10 +467,6 @@ html:has(#color-scheme-selector-light:checked) {
             text-decoration: underline;
         }
     }
-    /*.page-content-hr-bottom {*/
-    /*    @apply mt-4 mb-2;*/
-    /*    @apply border-gray-400;*/
-    /*}*/
     /**/
     /* End single page content section */
     /**/
