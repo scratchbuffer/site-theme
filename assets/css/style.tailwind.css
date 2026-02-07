@@ -8,8 +8,11 @@
       "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
     --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
       "Courier New", monospace;
-    --color-gray-100: oklch(96.7% 0.003 264.542);
     --color-gray-300: oklch(87.2% 0.01 258.338);
+    --color-neutral-100: oklch(97% 0 0);
+    --color-neutral-200: oklch(92.2% 0 0);
+    --color-neutral-700: oklch(37.1% 0 0);
+    --color-neutral-900: oklch(20.5% 0 0);
     --spacing: 0.25rem;
     --container-3xl: 48rem;
     --text-xs: 0.75rem;
@@ -32,6 +35,7 @@
     --font-weight-normal: 400;
     --font-weight-medium: 500;
     --font-weight-semibold: 600;
+    --radius-sm: 0.25rem;
     --default-font-family: var(--font-sans);
     --default-mono-font-family: var(--font-mono);
   }
@@ -202,10 +206,10 @@
   --color-light-text: #111;
   --color-light-code: #111;
   --color-light-code-bg: #DDD;
-  --color-dark-bg: #111;
-  --color-dark-text: #FFF;
-  --color-dark-code: #FFF;
-  --color-dark-code-bg: #333;
+  --color-dark-bg: var(--color-neutral-900);
+  --color-dark-text: var(--color-neutral-100);
+  --color-dark-code: var(--color-neutral-200);
+  --color-dark-code-bg: var(--color-neutral-700);
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -220,7 +224,11 @@
     .color-scheme-icon-dark {
       display: inline;
     }
-    main code {
+    .terms-item {
+      color: var(--color-dark-code);
+      background-color: var(--color-dark-code-bg);
+    }
+    .terms-item, main code {
       color: var(--color-dark-code);
       background-color: var(--color-dark-code-bg);
     }
@@ -239,7 +247,11 @@
   .color-scheme-icon-dark {
     display: inline;
   }
-  main code {
+  .terms-item {
+    color: var(--color-dark-code);
+    background-color: var(--color-dark-code-bg);
+  }
+  .terms-item, main code {
     color: var(--color-dark-code);
     background-color: var(--color-dark-code-bg);
   }
@@ -257,7 +269,7 @@ html:has(#color-scheme-selector-light:checked) {
   .color-scheme-icon-dark {
     display: none;
   }
-  main code, main pre code {
+  .terms-item, main code, main pre code {
     color: var(--color-light-code);
     background-color: var(--color-light-code-bg);
   }
@@ -289,6 +301,8 @@ html:has(#color-scheme-selector-light:checked) {
 }
 @layer base {
   :root {
+    font-size: var(--text-base);
+    line-height: var(--tw-leading, var(--text-base--line-height));
     font-family: 'Inter', var(--font-sans);
   }
   body {
@@ -299,9 +313,9 @@ html:has(#color-scheme-selector-light:checked) {
   h1, h2, h3, h4, h5, h6 {
     padding-top: calc(var(--spacing) * 4);
     padding-bottom: calc(var(--spacing) * 2);
-    font-family: 'Work Sans', var(--font-sans);
     --tw-font-weight: var(--font-weight-medium);
     font-weight: var(--font-weight-medium);
+    font-family: 'Work Sans', var(--font-sans);
     code, pre {
       font-size: inherit;
     }
@@ -402,8 +416,8 @@ html:has(#color-scheme-selector-light:checked) {
     padding-bottom: calc(var(--spacing) * 2);
   }
   .breadcrumbs-separator, .breadcrumbs-item {
-    font-size: var(--text-sm);
-    line-height: var(--tw-leading, var(--text-sm--line-height));
+    font-size: var(--text-xs);
+    line-height: var(--tw-leading, var(--text-xs--line-height));
     font-family: 'Inter', var(--font-sans);
     --tw-font-weight: var(--font-weight-light);
     font-weight: var(--font-weight-light);
@@ -505,6 +519,17 @@ html:has(#color-scheme-selector-light:checked) {
       list-style-type: disc;
     }
   }
+  .taxonomy-terms-list {
+    ul {
+      padding-left: calc(var(--spacing) * 6);
+      padding-bottom: calc(var(--spacing) * 2);
+      list-style-type: disc;
+    }
+    .terms-list-item-title {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
   .single-page-header-description {
     padding-top: calc(var(--spacing) * 2);
     padding-bottom: calc(var(--spacing) * 0);
@@ -538,8 +563,10 @@ html:has(#color-scheme-selector-light:checked) {
     line-height: var(--tw-leading, var(--text-sm--line-height));
   }
   .terms-item {
-    background-color: var(--color-gray-100);
-    padding-right: calc(var(--spacing) * 2);
+    margin-right: calc(var(--spacing) * 2);
+    border-radius: var(--radius-sm);
+    padding-inline: calc(var(--spacing) * 1);
+    padding-block: calc(var(--spacing) * 0.5);
   }
   .pagination-single {
     display: flex;

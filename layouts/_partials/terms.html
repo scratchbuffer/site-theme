@@ -11,6 +11,7 @@ For a given taxonomy, renders a list of terms assigned to the page.
 {{- $taxonomy := .taxonomy }}
 
 {{- with $page.GetTerms $taxonomy }}
+    <!-- TODO might be better way to extract label - see taxonomy.html data structures -->
     {{- $label := (index . 0).Parent.LinkTitle }} <!-- Extract taxonomy name: /tags/markdown -> Tags -->
     <div class="terms">
       <div class="terms-items">

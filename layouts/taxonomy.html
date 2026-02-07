@@ -10,6 +10,9 @@
       </div>
       ---
     {{- end }}
-    {{ partial "taxonomy-pages-list.html" (dict "page" .) }}
+
+    {{ $taxonomy := .Type }} <!-- Taxonomy name gets stored in Type -->
+    {{ $terms := index .Site.Taxonomies $taxonomy }}
+    {{ partial "taxonomy-pages-list.html" (dict "terms" $terms) }}
 
 {{ end }}

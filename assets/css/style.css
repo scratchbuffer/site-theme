@@ -8,10 +8,10 @@
     --color-light-text: #111;
     --color-light-code: #111;
     --color-light-code-bg: #DDD;
-    --color-dark-bg: #111;
-    --color-dark-text: #FFF;
-    --color-dark-code: #FFF;
-    --color-dark-code-bg: #333;
+    --color-dark-bg: var(--color-neutral-900);
+    --color-dark-text: var(--color-neutral-100);
+    --color-dark-code: var(--color-neutral-200);
+    --color-dark-code-bg: var(--color-neutral-700);
 
     /* Apply variables from custom utilities */
     background-color: var(--background-color);
@@ -31,7 +31,7 @@
         display: none;
     }
 
-    main code, main pre code {
+    .terms-item, main code, main pre code {
         color: var(--color-light-code);
         background-color: var(--color-light-code-bg);
     }
@@ -50,7 +50,12 @@
         display: inline;
     }
 
-    main code {
+    .terms-item {
+        color: var(--color-dark-code);
+        background-color: var(--color-dark-code-bg);
+    }
+
+    .terms-item, main code {
         color: var(--color-dark-code);
         background-color: var(--color-dark-code-bg);
     }
@@ -127,6 +132,7 @@ html:has(#color-scheme-selector-light:checked) {
 @layer base {
 
     :root {
+        @apply text-base;
         font-family: 'Inter', var(--font-sans);
     }
 
@@ -139,8 +145,8 @@ html:has(#color-scheme-selector-light:checked) {
     h1, h2, h3, h4, h5, h6 {
         @apply pt-4 pb-2;
 
-        font-family: 'Work Sans', var(--font-sans);
         @apply font-medium;
+        font-family: 'Work Sans', var(--font-sans);
 
         code, pre {
             font-size: inherit;
@@ -268,7 +274,7 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     .breadcrumbs-separator, .breadcrumbs-item {
-        @apply text-sm;
+        @apply text-xs;
         font-family: 'Inter', var(--font-sans);
         @apply font-light;
     }
@@ -296,7 +302,7 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
 
     /**/
-    /* List page layout section */
+    /* List layout section */
     /**/
     .list-page-header {
         @apply pb-4;
@@ -378,9 +384,25 @@ html:has(#color-scheme-selector-light:checked) {
             @apply list-disc;
         }
     }
+    /**/
+    /* End list layout section */
+    /**/
 
     /**/
-    /* End page layout section */
+    /* Taxonomy (terms list) layout section */
+    /**/
+    .taxonomy-terms-list {
+        ul {
+            @apply pl-6;
+            @apply pb-2;
+            @apply list-disc;
+        }
+        .terms-list-item-title {
+            @apply text-xl;
+        }
+    }
+    /**/
+    /* End taxonomy (terms list) layout section */
     /**/
 
     /**/
@@ -413,8 +435,12 @@ html:has(#color-scheme-selector-light:checked) {
         @apply text-sm;
     }
     .terms-item {
-        @apply bg-gray-100; /* TODO respect color scheme */
-        @apply pr-2;
+        /*@apply bg-gray-100; !* TODO respect color scheme *!*/
+        @apply mr-2;
+        @apply rounded-sm;
+        /*padding: 2px;*/
+        @apply px-1 py-0.5;
+
     }
     /**/
     /* End single page header section */

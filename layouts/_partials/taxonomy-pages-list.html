@@ -6,15 +6,20 @@ Renders a list of direction child Sections, then RegularPages for a Hugo section
 @example: {{ partial "taxonomy-pages-list.html" . }}
 */}}
 
-{{- $page := .page }}
+{{- $terms := .terms }}
 <div class="taxonomy-terms-list">
-    {{ if $page.Pages }}
-      <div class="terms-list">
-        <ul>
-            {{ range sort $page.Pages ".Params.weight" }}
-              <li>{{ partial "list-page-header.html" (dict "page" . "titleElement" "h3" "descElement" "h4") }}</li>
-            {{ end }}
-        </ul>
-      </div>
-    {{ end }}
+  <div class="terms-list">
+    <ul>
+        {{ range sort $terms ".Page.Title" }}
+            {{ $term := . }}
+            <li>
+              <div class="terms-list-item">
+                <a href="{{ $term.Page.RelPermalink }}">
+                  <h2 class="terms-list-item-title">#{{ $term.Page.Title }}: {{ $term.Count }}</h2>
+                </a>
+              </div>
+            </li>
+        {{ end }}
+    </ul>
+  </div>
 </div>
