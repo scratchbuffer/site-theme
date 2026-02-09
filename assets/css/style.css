@@ -488,9 +488,27 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
     /* Single page content section */
     /**/
-    .page-content {
+    .single-page-content {
         a {
             text-decoration: underline;
+        }
+
+        /*
+        Repeat list styling with higher specificity;
+        attempting to fix what appears to be a mobile Safari bug.
+        */
+        ol {
+            @apply pl-8;
+            @apply pb-2;
+            @apply list-decimal;
+        }
+        ol ol {
+            @apply list-[lower-roman];
+        }
+        ul {
+            @apply pl-8;
+            @apply pb-2;
+            @apply list-disc;
         }
     }
     /**/
