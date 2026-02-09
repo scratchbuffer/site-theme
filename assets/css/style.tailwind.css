@@ -611,6 +611,15 @@ html:has(#color-scheme-selector-light:checked) {
       padding-bottom: calc(var(--spacing) * 2);
       list-style-type: disc;
     }
+    @supports (-webkit-touch-callout: none) {
+      ol, ul {
+        -webkit-appearance: none;
+      }
+      ol li, ul li {
+        list-style-type: decimal;
+        display: list-item;
+      }
+    }
   }
 }
 @property --tw-rotate-x {
