@@ -515,8 +515,16 @@ html:has(#color-scheme-selector-light:checked) {
             ol, ul {
                 -webkit-appearance: none;
             }
-            ol li, ul li {
+            ol li {
                 list-style-type: decimal;
+                display: list-item;
+            }
+            ol ol li {
+                list-style-type: lower-roman;
+                display: list-item;
+            }
+            ul li {
+                list-style-type: disc;
                 display: list-item;
             }
         }
