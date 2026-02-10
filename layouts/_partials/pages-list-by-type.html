@@ -1,0 +1,21 @@
+{{- $pageList := .pageList }}
+
+{{- $articleType := "article" }}
+{{- $notecardType := "notecard" }}
+{{- $regularPageTypes := slice $articleType $notecardType }}
+{{- $pageTypesListHeader := dict $articleType "Articles" $notecardType "Note Cards"}}
+
+<div class="pages-list">
+  {{- range $regularPageTypes }}
+      {{- $pageType := . }}
+    {{- $pageListForType := (sort (where $pageList "Type" "eq" $pageType) ".Params.weight")}}
+    {{- if gt (len $pageListForType) 0 }}
+      <h2 class="pages-list-type-header">{{ index $pageTypesListHeader . }}</h2>
+      <ul>
+        {{- range $pageListForType }}
+          <li>{{ partial "page-list-item.html" (dict "page" . "titleElement" "h3" "descElement" "p" "titleIsLink" true) }}</li>
+        {{- end }}
+      </ul>
+    {{ end }}
+  {{ end }}
+</div>

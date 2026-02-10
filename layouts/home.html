@@ -10,6 +10,11 @@
       </div>
     {{- end }}
 
-    {{ partial "section-pages-list.html" (dict "page" .) }}
+    {{
+      partial "featured.html" (dict
+        "pageList" .Site.RegularPages
+        "filterRelPermalinks" .Site.Params.site.featuredPages
+      )
+    }}
 
 {{ end }}
