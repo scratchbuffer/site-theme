@@ -4,8 +4,12 @@
 {{- $featuredPages := where $pageList "RelPermalink" "in" $filterRelPermalinks }}
 
 {{ with $featuredPages }}
-  <div class="sections-list-header">
-    <h2>Featured</h2>
+<div class="featured-pages-list">
+  <div class="featured-pages-list-header">
+    <div class="featured-pages-list-header-title">
+      <h2>Featured</h2>
+    </div>
   </div>
   {{ partial "pages-list-by-type.html" (dict "pageList" .) }}
+</div>
 {{ end }}

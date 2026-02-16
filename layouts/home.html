@@ -1,20 +1,24 @@
 {{ define "main" }}
 
-    <div class="home-page-header">
-      {{ partial "list-page-header.html" (dict "page" . "titleElement" "h1") }}
+  <div class="home-page-header">
+    {{ partial "list-page-header.html" (dict "page" . "titleElement" "h1") }}
+  </div>
+
+  {{- if .Content }}
+    <div class="home-page-content">
+      <div class="page-content">
+      {{ .Content }}
+      </div>
+      <hr class="home-page-content-hr-bottom">
     </div>
 
-    {{- if .Content }}
-      <div class="page-content">
-          {{ .Content }}
-      </div>
-    {{- end }}
+  {{- end }}
 
-    {{
-      partial "featured.html" (dict
-        "pageList" .Site.RegularPages
-        "filterRelPermalinks" .Site.Params.site.featuredPages
-      )
-    }}
+  {{
+    partial "featured.html" (dict
+      "pageList" .Site.RegularPages
+      "filterRelPermalinks" .Site.Params.site.featuredPages
+    )
+  }}
 
 {{ end }}

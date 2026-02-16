@@ -216,6 +216,14 @@ html:has(#color-scheme-selector-light:checked) {
         @apply list-[lower-roman];
     }
 
+    .page-content {
+        @apply pb-8;
+    }
+
+    .main-hr-bottom {
+        @apply border-gray-300;
+    }
+
     /**/
     /* Top header section (above nav bar) */
     /**/
@@ -259,7 +267,6 @@ html:has(#color-scheme-selector-light:checked) {
 
     .nav-hr-bottom {
         @apply block;
-        /*@apply mt-4 mb-2;*/
         @apply border-gray-300;
     }
     /**/
@@ -282,13 +289,8 @@ html:has(#color-scheme-selector-light:checked) {
     /* End breadcrumbs section */
     /**/
 
-    .base-hr-bottom {
-        @apply mt-8 mb-4;
-        @apply border-gray-300;
-    }
-
     /**/
-    /* Home page header section */
+    /* Home page section */
     /**/
     .home-page-header {
         /*
@@ -297,8 +299,32 @@ html:has(#color-scheme-selector-light:checked) {
         */
         @apply pt-4;
     }
+
+    .home-page-content-hr-bottom {
+        @apply border-gray-300;
+    }
     /**/
-    /* End home page header section */
+    /* End home page section */
+    /**/
+
+    /**/
+    /* Featured pages section on home page */
+    /**/
+    .featured-pages-list {
+        /*
+        Home page does not have have breadcrumbs & the associated padding;
+        add padding to create separation from header/nav area.
+        */
+        @apply pb-8;
+    }
+    .featured-pages-list-header {
+        @apply pb-4;
+    }
+    .featured-pages-list-header-title {
+        @apply pt-4 pb-2;
+    }
+    /**/
+    /* End featured pages section on home page */
     /**/
 
     /**/
@@ -314,6 +340,10 @@ html:has(#color-scheme-selector-light:checked) {
         @apply p-0;
         @apply font-normal;
         /*@apply italic;*/
+    }
+
+    .section-pages-list {
+        @apply pb-8;
     }
 
     .sections-list {
@@ -446,44 +476,6 @@ html:has(#color-scheme-selector-light:checked) {
     /* End single page header section */
     /**/
 
-    /**/
-    /* Single page pagination section (next/prev) */
-    /**/
-    .pagination-single {
-        @apply flex;
-        @apply justify-between;
-
-        /*@apply mt-2;*/
-        @apply pt-4 pb-4;
-
-        @apply text-xs;
-        @apply font-light;
-    }
-    .pagination-single-item {
-        @apply basis-4/10;
-
-        white-space: nowrap;
-        overflow: hidden;
-        @apply text-wrap;
-    }
-    .pagination-single-item-prev {
-        /*@apply pr-8;*/
-    }
-    .pagination-single-item-next {
-        /*@apply pl-8;*/
-    }
-    .pagination-single-item-keyword {
-        @apply font-semibold;
-    }
-    .pagination-single-item-name {
-        text-overflow: ellipsis;
-    }
-    .pagination-single-hr-bottom {
-        @apply border-gray-300;
-    }
-    /**/
-    /* End single page pagination section (next/prev) */
-    /**/
 
     /**/
     /* Single page content section */
@@ -533,6 +525,49 @@ html:has(#color-scheme-selector-light:checked) {
     /* End single page content section */
     /**/
 
+    /**/
+    /* Single page pagination section (next/prev) */
+    /**/
+    .pagination-single {
+        @apply flex;
+        @apply justify-between;
+
+        /*@apply mt-2;*/
+        /*@apply mt-8 mb-8;*/
+        @apply pt-8 pb-4;
+
+        @apply text-xs;
+        @apply font-light;
+    }
+    .pagination-single-item {
+        @apply basis-5/10;
+
+        white-space: nowrap;
+        overflow: hidden;
+        @apply text-wrap;
+    }
+    .pagination-single-item-prev {
+        /*@apply pr-8;*/
+    }
+    .pagination-single-item-next {
+        /*@apply pl-8;*/
+    }
+    .pagination-single-item-keyword {
+        @apply font-semibold;
+    }
+    .pagination-single-item-name {
+        text-overflow: ellipsis;
+    }
+    .pagination-single-hr-bottom {
+        @apply border-gray-300;
+    }
+    /**/
+    /* End single page pagination section (next/prev) */
+    /**/
+
+    footer {
+        @apply pt-4 pb-2;
+    }
 
 }
 /**/

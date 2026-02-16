@@ -1,18 +1,19 @@
 {{ define "main" }}
 
-    {{ partial "breadcrumbs.html" (dict "page" .) }}
+  {{ partial "breadcrumbs.html" (dict "page" .) }}
 
-    {{ partial "list-page-header.html" (dict "page" . "titleElement" "h1") }}
+  {{ partial "list-page-header.html" (dict "page" . "titleElement" "h1") }}
 
-    {{- if .Content }}
-      <div class="taxonomy-content">
-          {{ .Content }}
-      </div>
-      ---
-    {{- end }}
+  {{- if .Content }}
+    <div class="page-content taxonomy-content">
+      {{ .Content }}
+      <hr class="page-content-hr-bottom">
+    </div>
+    ---
+  {{- end }}
 
-    {{ $taxonomy := .Type }} <!-- Taxonomy name gets stored in Type -->
-    {{ $terms := index .Site.Taxonomies $taxonomy }}
-    {{ partial "taxonomy-pages-list.html" (dict "terms" $terms) }}
+  {{ $taxonomy := .Type }} <!-- Taxonomy name gets stored in Type -->
+  {{ $terms := index .Site.Taxonomies $taxonomy }}
+  {{ partial "taxonomy-pages-list.html" (dict "terms" $terms) }}
 
 {{ end }}

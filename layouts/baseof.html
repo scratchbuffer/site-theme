@@ -5,14 +5,15 @@
 </head>
 <body>
 <header>
-    {{ partial "header.html" . }}
-    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+  {{ partial "header.html" . }}
+  {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 </header>
 
 <main>
-    {{ block "main" . }}{{ end }}
+  {{ block "main" . }}{{ end }}
+  <hr class="main-hr-bottom">
 </main>
-<hr class="base-hr-bottom">
+
 <footer>
     {{ partial "footer.html" . }}
 </footer>

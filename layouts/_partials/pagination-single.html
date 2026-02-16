@@ -12,6 +12,7 @@
 {{ $nextPageExists := lt $pageIndex (sub (len $pagesInSubsection) 1) }}
 
 {{ if or $prevPageExists $nextPageExists }}
+  <hr class="pagination-single-hr-bottom">
   <div class="pagination-single">
 
     <span class="pagination-single-item pagination-single-item-prev">
@@ -25,18 +26,15 @@
     </span>
 
     <span class="pagination-single-item pagination-single-item-next">
-        {{ if $nextPageExists }}
-            {{ $nextPage := index $pagesInSubsection (add $pageIndex 1) }}
+      {{ if $nextPageExists }}
+          {{ $nextPage := index $pagesInSubsection (add $pageIndex 1) }}
 
-              <div class="pagination-single-item-keyword">Next:</div>
-            <a href="{{ $nextPage.RelPermalink }}">
-                <div class="pagination-single-item-name">{{ $nextPage.Title | truncate 64 }}</div>
-            </a>
-        {{ end }}
+            <div class="pagination-single-item-keyword">Next:</div>
+          <a href="{{ $nextPage.RelPermalink }}">
+              <div class="pagination-single-item-name">{{ $nextPage.Title | truncate 64 }}</div>
+          </a>
+      {{ end }}
     </span>
 
-
   </div>
-  <hr class="pagination-single-hr-bottom">
-
 {{ end }}
