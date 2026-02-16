@@ -217,7 +217,7 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     .page-content {
-        @apply pb-8;
+        @apply pt-4 pb-8;
     }
 
     .main-hr-bottom {
@@ -311,18 +311,13 @@ html:has(#color-scheme-selector-light:checked) {
     /* Featured pages section on home page */
     /**/
     .featured-pages-list {
-        /*
-        Home page does not have have breadcrumbs & the associated padding;
-        add padding to create separation from header/nav area.
-        */
         @apply pb-8;
+
+        .featured-pages-list-header-title {
+            @apply pt-4 pb-2;
+        }
     }
-    .featured-pages-list-header {
-        @apply pb-4;
-    }
-    .featured-pages-list-header-title {
-        @apply pt-4 pb-2;
-    }
+
     /**/
     /* End featured pages section on home page */
     /**/
@@ -422,6 +417,8 @@ html:has(#color-scheme-selector-light:checked) {
     /* Taxonomy (terms list) layout section */
     /**/
     .taxonomy-terms-list {
+        @apply pb-8;
+
         ul {
             @apply pl-6;
             @apply pb-2;
@@ -438,6 +435,17 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
     /* Single page header section */
     /**/
+    .table-of-contents {
+        nav { /* Use nav nesting to increase specificity */
+            a {
+                @apply no-underline;
+            }
+            a:hover {
+                @apply underline;
+            }
+        }
+    }
+
     .single-page-header-description {
         @apply pt-2 pb-0;
         @apply text-xl;
@@ -468,7 +476,6 @@ html:has(#color-scheme-selector-light:checked) {
         /*@apply bg-gray-100; !* TODO respect color scheme *!*/
         @apply mr-2;
         @apply rounded-sm;
-        /*padding: 2px;*/
         @apply px-1 py-0.5;
 
     }

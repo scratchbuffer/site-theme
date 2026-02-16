@@ -377,6 +377,7 @@ html:has(#color-scheme-selector-light:checked) {
     list-style-type: lower-roman;
   }
   .page-content {
+    padding-top: calc(var(--spacing) * 4);
     padding-bottom: calc(var(--spacing) * 8);
   }
   .main-hr-bottom {
@@ -436,13 +437,10 @@ html:has(#color-scheme-selector-light:checked) {
   }
   .featured-pages-list {
     padding-bottom: calc(var(--spacing) * 8);
-  }
-  .featured-pages-list-header {
-    padding-bottom: calc(var(--spacing) * 4);
-  }
-  .featured-pages-list-header-title {
-    padding-top: calc(var(--spacing) * 4);
-    padding-bottom: calc(var(--spacing) * 2);
+    .featured-pages-list-header-title {
+      padding-top: calc(var(--spacing) * 4);
+      padding-bottom: calc(var(--spacing) * 2);
+    }
   }
   .list-page-header {
     padding-bottom: calc(var(--spacing) * 4);
@@ -537,6 +535,7 @@ html:has(#color-scheme-selector-light:checked) {
     }
   }
   .taxonomy-terms-list {
+    padding-bottom: calc(var(--spacing) * 8);
     ul {
       padding-left: calc(var(--spacing) * 6);
       padding-bottom: calc(var(--spacing) * 2);
@@ -545,6 +544,16 @@ html:has(#color-scheme-selector-light:checked) {
     .terms-list-item-title {
       font-size: var(--text-xl);
       line-height: var(--tw-leading, var(--text-xl--line-height));
+    }
+  }
+  .table-of-contents {
+    nav {
+      a {
+        text-decoration-line: none;
+      }
+      a:hover {
+        text-decoration-line: underline;
+      }
     }
   }
   .single-page-header-description {
