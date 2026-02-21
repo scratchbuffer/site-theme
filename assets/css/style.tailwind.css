@@ -384,7 +384,7 @@ html:has(#color-scheme-selector-light:checked) {
     border-color: var(--color-gray-300);
   }
   header {
-    padding-top: calc(var(--spacing) * 6);
+    padding-top: calc(var(--spacing) * 4);
     #header-site-title-outer {
       padding-top: calc(var(--spacing) * 4);
       padding-bottom: calc(var(--spacing) * 4);
