@@ -145,7 +145,7 @@ html:has(#color-scheme-selector-light:checked) {
     h1, h2, h3, h4, h5, h6 {
         @apply pt-4 pb-2;
 
-        @apply font-medium;
+        @apply font-semibold;
         font-family: 'Work Sans', var(--font-sans);
 
         code, pre {
@@ -350,7 +350,7 @@ html:has(#color-scheme-selector-light:checked) {
             .pages-list-type-header {
                 @apply pt-1 pb-0;
                 @apply text-lg;
-                @apply font-light;
+                @apply font-normal;
                 font-family: 'Inter', var(--font-sans);
             }
 

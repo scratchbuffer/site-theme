@@ -313,8 +313,8 @@ html:has(#color-scheme-selector-light:checked) {
   h1, h2, h3, h4, h5, h6 {
     padding-top: calc(var(--spacing) * 4);
     padding-bottom: calc(var(--spacing) * 2);
-    --tw-font-weight: var(--font-weight-medium);
-    font-weight: var(--font-weight-medium);
+    --tw-font-weight: var(--font-weight-semibold);
+    font-weight: var(--font-weight-semibold);
     font-family: 'Work Sans', var(--font-sans);
     code, pre {
       font-size: inherit;
@@ -465,8 +465,8 @@ html:has(#color-scheme-selector-light:checked) {
         padding-bottom: calc(var(--spacing) * 0);
         font-size: var(--text-lg);
         line-height: var(--tw-leading, var(--text-lg--line-height));
-        --tw-font-weight: var(--font-weight-light);
-        font-weight: var(--font-weight-light);
+        --tw-font-weight: var(--font-weight-normal);
+        font-weight: var(--font-weight-normal);
         font-family: 'Inter', var(--font-sans);
       }
       .pages-list-item-title {
