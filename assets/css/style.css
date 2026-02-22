@@ -325,9 +325,9 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
     /* List layout section */
     /**/
-    .list-page-header {
-        @apply pb-4;
-    }
+    /*.list-page-header {*/
+    /*    @apply pb-4;*/
+    /*}*/
     .list-page-header-title {
         @apply pt-4 pb-2;
     }
@@ -436,7 +436,12 @@ html:has(#color-scheme-selector-light:checked) {
     /* Single page header section */
     /**/
     .table-of-contents {
+        summary {
+            @apply text-xl;
+            @apply font-medium;
+        }
         nav { /* Use nav nesting to increase specificity */
+            @apply pt-0;
             a {
                 @apply no-underline;
             }

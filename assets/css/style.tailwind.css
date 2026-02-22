@@ -442,9 +442,6 @@ html:has(#color-scheme-selector-light:checked) {
       padding-bottom: calc(var(--spacing) * 2);
     }
   }
-  .list-page-header {
-    padding-bottom: calc(var(--spacing) * 4);
-  }
   .list-page-header-title {
     padding-top: calc(var(--spacing) * 4);
     padding-bottom: calc(var(--spacing) * 2);
@@ -547,7 +544,14 @@ html:has(#color-scheme-selector-light:checked) {
     }
   }
   .table-of-contents {
+    summary {
+      font-size: var(--text-xl);
+      line-height: var(--tw-leading, var(--text-xl--line-height));
+      --tw-font-weight: var(--font-weight-medium);
+      font-weight: var(--font-weight-medium);
+    }
     nav {
+      padding-top: calc(var(--spacing) * 0);
       a {
         text-decoration-line: none;
       }
