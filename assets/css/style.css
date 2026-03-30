@@ -148,27 +148,39 @@ html:has(#color-scheme-selector-light:checked) {
         @apply font-semibold;
         font-family: 'Work Sans', var(--font-sans);
 
-        code, pre {
-            font-size: inherit;
-            /* Specificity overrides later directives
+        /* Specificity overrides later directives
             to make code/pre font smaller */
+        pre {
+            font-size: inherit;
         }
     }
 
     h1 {
         @apply text-4xl;
+        code {
+            @apply text-3xl;
+        }
     }
 
     h2 {
         @apply text-3xl;
+        code {
+            @apply text-2xl;
+        }
     }
 
     h3 {
         @apply text-2xl;
+        code {
+            @apply text-xl;
+        }
     }
 
     h4 {
         @apply text-xl;
+        code {
+            @apply text-lg;
+        }
     }
 
     a:hover {
@@ -184,9 +196,11 @@ html:has(#color-scheme-selector-light:checked) {
         @apply overflow-auto;
     }
 
+    .highlight {
+        @apply py-2;
+    }
     pre {
-        @apply mb-4;
-        @apply p-4;
+        @apply p-2;
         /*@apply whitespace-pre-wrap;*/
         @apply text-sm;
     }
@@ -194,6 +208,10 @@ html:has(#color-scheme-selector-light:checked) {
     code, pre {
         font-family: monospace;
         @apply text-sm;
+    }
+
+    code {
+        @apply rounded-xs;
     }
 
     ul {
