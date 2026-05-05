@@ -145,7 +145,7 @@ html:has(#color-scheme-selector-light:checked) {
     h1, h2, h3, h4, h5, h6 {
         @apply pt-4 pb-2;
 
-        @apply font-semibold;
+        @apply font-medium;
         font-family: 'Work Sans', var(--font-sans);
 
         /* Specificity overrides later directives
@@ -188,8 +188,7 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     p {
-        @apply pt-2;
-        @apply pb-4;
+        @apply pt-0 pb-4;
     }
 
     p, blockquote, pre {
@@ -197,10 +196,10 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     .highlight {
-        @apply py-2;
+        @apply pt-0 pb-4;
     }
     pre {
-        @apply p-2;
+        @apply p-4;
         /*@apply whitespace-pre-wrap;*/
         @apply text-sm;
     }
@@ -246,7 +245,7 @@ html:has(#color-scheme-selector-light:checked) {
     /* Top header section (above nav bar) */
     /**/
     header {
-        @apply pt-4;
+        @apply pt-8;
 
         #header-site-title-outer {
             @apply pt-4 pb-4;
@@ -273,7 +272,7 @@ html:has(#color-scheme-selector-light:checked) {
     nav {
         @apply inline-flex;
         @apply flex-wrap;
-        @apply pt-4 pb-2;
+        @apply pt-2 pb-2;
     }
 
     .nav-item {
@@ -454,6 +453,7 @@ html:has(#color-scheme-selector-light:checked) {
     /* Single page header section */
     /**/
     .table-of-contents {
+        @apply pt-4 pb-2;
         summary {
             @apply text-xl;
             @apply font-medium;
@@ -468,9 +468,12 @@ html:has(#color-scheme-selector-light:checked) {
             }
         }
     }
+    .single-page-header-title {
+        @apply pt-2 pb-2;
+    }
 
     .single-page-header-description {
-        @apply pt-2 pb-0;
+        @apply pt-2 pb-2;
         @apply text-xl;
         font-family: 'Inter', var(--font-sans);
         /*@apply font-semibold;*/
@@ -483,7 +486,7 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     .single-page-header-date {
-        @apply pt-2 pb-0;
+        @apply pt-2 pb-2;
         @apply text-sm;
     }
     .single-page-header-hr-bottom {
@@ -492,8 +495,8 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     .terms {
-        @apply pt-4 pb-0;
-        @apply text-sm;
+        @apply pt-4 pb-2;
+        @apply text-xs;
     }
     .terms-item {
         /*@apply bg-gray-100; !* TODO respect color scheme *!*/
