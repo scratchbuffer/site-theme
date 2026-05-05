@@ -189,7 +189,7 @@ html:has(#color-scheme-selector-light:checked) {
 
     p {
         @apply pt-2;
-        @apply pb-1;
+        @apply pb-4;
     }
 
     p, blockquote, pre {
