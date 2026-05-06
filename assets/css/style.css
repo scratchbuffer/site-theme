@@ -248,7 +248,7 @@ html:has(#color-scheme-selector-light:checked) {
         @apply pt-8;
 
         #header-site-title-outer {
-            @apply pt-4 pb-4;
+            @apply pt-2 pb-2;
 
             a {
                 @apply no-underline;
@@ -314,7 +314,7 @@ html:has(#color-scheme-selector-light:checked) {
         Home page does not have have breadcrumbs & the associated padding;
         add padding to create separation from header/nav area.
         */
-        @apply pt-4;
+        @apply pt-8;
     }
 
     .home-page-content-hr-bottom {
@@ -331,7 +331,7 @@ html:has(#color-scheme-selector-light:checked) {
         @apply pb-8;
 
         .featured-pages-list-header-title {
-            @apply pt-4 pb-2;
+            @apply pt-2 pb-2;
         }
     }
 
@@ -346,7 +346,7 @@ html:has(#color-scheme-selector-light:checked) {
     /*    @apply pb-4;*/
     /*}*/
     .list-page-header-title {
-        @apply pt-4 pb-2;
+        @apply pt-2 pb-2;
     }
     .list-page-header-description {
         @apply p-0;
@@ -360,12 +360,12 @@ html:has(#color-scheme-selector-light:checked) {
 
     .sections-list {
         h1, h2, h3, h4, h5, h6 {
-            @apply pt-2 pb-1;
+            @apply pt-2 pb-2;
         }
 
         .pages-list  {
             .pages-list-type-header {
-                @apply pt-1 pb-0;
+                @apply pt-2 pb-2;
                 @apply text-lg;
                 @apply font-normal;
                 font-family: 'Inter', var(--font-sans);
@@ -398,7 +398,7 @@ html:has(#color-scheme-selector-light:checked) {
     .pages-list {
 
         h1, h2, h3, h4, h5, h6 {
-            @apply pt-2 pb-1;
+            @apply pt-2 pb-2;
         }
 
         .pages-list-type-header {
@@ -453,7 +453,7 @@ html:has(#color-scheme-selector-light:checked) {
     /* Single page header section */
     /**/
     .table-of-contents {
-        @apply pt-4 pb-2;
+        @apply pt-2 pb-2;
         summary {
             @apply text-xl;
             @apply font-medium;
@@ -495,7 +495,7 @@ html:has(#color-scheme-selector-light:checked) {
     }
 
     .terms {
-        @apply pt-4 pb-2;
+        @apply pt-2 pb-2;
         @apply text-xs;
     }
     .terms-item {
@@ -567,7 +567,7 @@ html:has(#color-scheme-selector-light:checked) {
 
         /*@apply mt-2;*/
         /*@apply mt-8 mb-8;*/
-        @apply pt-8 pb-4;
+        @apply pt-8 pb-8;
 
         @apply text-xs;
         @apply font-light;
@@ -599,7 +599,7 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
 
     footer {
-        @apply pt-4 pb-2;
+        @apply pt-8 pb-2;
     }
 
 }
