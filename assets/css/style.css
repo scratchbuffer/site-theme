@@ -247,7 +247,7 @@ html:has(#color-scheme-selector-light:checked) {
     /**/
 
     .page-content {
-        @apply pt-4 pb-8;
+        @apply pt-4 pb-4;
         a {
             text-decoration: underline;
         }
@@ -548,18 +548,6 @@ html:has(#color-scheme-selector-light:checked) {
     }
     /**/
     /* End single page header section */
-    /**/
-
-
-    /**/
-    /* Single page content section */
-    /**/
-    .single-page-content {
-        @apply pt-4 pb-4;
-    }
-
-    /**/
-    /* End single page content section */
     /**/
 
     /**/
