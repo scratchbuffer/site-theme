@@ -4,7 +4,7 @@
 {{- $featuredPages := where $pageList "RelPermalink" "in" $filterRelPermalinks }}
 
 {{ with $featuredPages }}
-<div class="featured-pages-list">
+<div id="featured-pages" class="featured-pages-list">
   <div class="featured-pages-list-header">
     <div class="featured-pages-list-header-title">
       <h2>Featured</h2>
