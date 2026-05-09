@@ -555,7 +555,7 @@ html:has(#color-scheme-selector-light:checked) {
     /* Single page content section */
     /**/
     .single-page-content {
-        @apply pt-0 pb-8;
+        @apply pt-4 pb-4;
     }
 
     /**/
