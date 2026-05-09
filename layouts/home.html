@@ -1,17 +1,19 @@
 {{ define "main" }}
 
   <div class="home-page-header">
-    {{ partial "list-page-header.html" (dict "page" . "titleElement" "h1") }}
+    {{ partial "list-page-header.html" (dict
+        "page" .
+        "titleOverride" "Welcome to ScratchBuffer"
+        "titleElement" "h1"
+      )
+    }}
   </div>
 
   {{- if .Content }}
-    <div class="home-page-content">
-      <div class="page-content">
-      {{ .Content }}
-      </div>
-      <hr class="home-page-content-hr-bottom">
+    <div class="page-content home-content">
+    {{ .Content }}
     </div>
-
+    <hr class="main-hr-bottom">
   {{- end }}
 
   {{

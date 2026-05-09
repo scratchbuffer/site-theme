@@ -13,6 +13,7 @@ Defaults to "h3", to nest one size below the default h2 titleElement.
 */}}
 
 {{- $page := .page }}
+{{- $titleOverride := default $page.Title .titleOverride }}
 {{- $titleElement := default "h2" .titleElement }}
 {{- $titleIsLink := default false .titleIsLink }}
 {{- $descElement := default "h3" .descElement }}
@@ -24,7 +25,7 @@ Defaults to "h3", to nest one size below the default h2 titleElement.
     {{- if $titleIsLink }}
     <a href="{{ $page.RelPermalink }}">
     {{ end }}
-      {{ $titleOpenTag }}{{ $page.Title }}{{ $titleCloseTag }}
+      {{ $titleOpenTag }}{{ $titleOverride }}{{ $titleCloseTag }}
     {{- if $titleIsLink }}
     </a>
     {{ end }}
@@ -36,4 +37,5 @@ Defaults to "h3", to nest one size below the default h2 titleElement.
     {{- end }}
 
   </div>
+  <hr class="page-header-hr-bottom">
 {{- end }}

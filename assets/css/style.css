@@ -215,7 +215,7 @@ html:has(#color-scheme-selector-light:checked) {
 
     ul {
         @apply pl-8;
-        @apply pb-2;
+        @apply pb-4;
         @apply list-disc;
     }
     ul {
@@ -233,12 +233,60 @@ html:has(#color-scheme-selector-light:checked) {
         @apply list-[lower-roman];
     }
 
-    .page-content {
-        @apply pt-4 pb-8;
+    .page-header-hr-bottom {
+        @apply mt-4 mb-2;
+        @apply border-gray-300;
     }
 
     .main-hr-bottom {
         @apply border-gray-300;
+    }
+
+    /**/
+    /* General page content section */
+    /**/
+
+    .page-content {
+        @apply pt-4 pb-8;
+        a {
+            text-decoration: underline;
+        }
+
+        /*
+        Repeat list styling with higher specificity;
+        attempting to fix what appears to be a mobile Safari bug.
+        */
+        ol {
+            @apply pl-8;
+            @apply pb-2;
+            @apply list-decimal;
+        }
+        ol ol {
+            @apply list-[lower-roman];
+        }
+        ul {
+            @apply pl-8;
+            @apply pb-4;
+            @apply list-disc;
+        }
+        @supports (-webkit-touch-callout: none) {
+            /* CSS specific to iOS devices */
+            ol, ul {
+                -webkit-appearance: none;
+            }
+            ol li {
+                list-style-type: decimal;
+                display: list-item;
+            }
+            ol ol li {
+                list-style-type: lower-roman;
+                display: list-item;
+            }
+            ul li {
+                list-style-type: disc;
+                display: list-item;
+            }
+        }
     }
 
     /**/
@@ -317,9 +365,6 @@ html:has(#color-scheme-selector-light:checked) {
         @apply pt-8;
     }
 
-    .home-page-content-hr-bottom {
-        @apply border-gray-300;
-    }
     /**/
     /* End home page section */
     /**/
@@ -328,7 +373,7 @@ html:has(#color-scheme-selector-light:checked) {
     /* Featured pages section on home page */
     /**/
     .featured-pages-list {
-        @apply pb-8;
+        @apply pt-4 pb-4;
 
         .featured-pages-list-header-title {
             @apply pt-2 pb-2;
@@ -349,13 +394,13 @@ html:has(#color-scheme-selector-light:checked) {
         @apply pt-2 pb-2;
     }
     .list-page-header-description {
-        @apply p-0;
+        @apply pt-2 pb-2;
         @apply font-normal;
         /*@apply italic;*/
     }
 
     .section-pages-list {
-        @apply pb-8;
+        @apply pt-4 pb-4;
     }
 
     .sections-list {
@@ -386,12 +431,12 @@ html:has(#color-scheme-selector-light:checked) {
 
         ul {
             @apply pl-0;
-            @apply pb-2;
+            @apply pb-4;
             @apply list-none;
         }
         ul ul {
             @apply pl-6;
-            @apply pb-2;
+            @apply pb-4;
             @apply list-disc;
         }
     }
@@ -422,7 +467,7 @@ html:has(#color-scheme-selector-light:checked) {
 
         ul {
             @apply pl-6;
-            @apply pb-2;
+            @apply pb-4;
             @apply list-disc;
         }
     }
@@ -434,11 +479,11 @@ html:has(#color-scheme-selector-light:checked) {
     /* Taxonomy (terms list) layout section */
     /**/
     .taxonomy-terms-list {
-        @apply pb-8;
+        @apply pt-4 pb-4;
 
         ul {
             @apply pl-6;
-            @apply pb-2;
+            @apply pb-4;
             @apply list-disc;
         }
         .terms-list-item-title {
@@ -489,10 +534,6 @@ html:has(#color-scheme-selector-light:checked) {
         @apply pt-2 pb-2;
         @apply text-sm;
     }
-    .single-page-header-hr-bottom {
-        @apply mt-4 mb-2;
-        @apply border-gray-300;
-    }
 
     .terms {
         @apply pt-2 pb-2;
@@ -514,46 +555,9 @@ html:has(#color-scheme-selector-light:checked) {
     /* Single page content section */
     /**/
     .single-page-content {
-        a {
-            text-decoration: underline;
-        }
-
-        /*
-        Repeat list styling with higher specificity;
-        attempting to fix what appears to be a mobile Safari bug.
-        */
-        ol {
-            @apply pl-8;
-            @apply pb-2;
-            @apply list-decimal;
-        }
-        ol ol {
-            @apply list-[lower-roman];
-        }
-        ul {
-            @apply pl-8;
-            @apply pb-2;
-            @apply list-disc;
-        }
-        @supports (-webkit-touch-callout: none) {
-            /* CSS specific to iOS devices */
-            ol, ul {
-                -webkit-appearance: none;
-            }
-            ol li {
-                list-style-type: decimal;
-                display: list-item;
-            }
-            ol ol li {
-                list-style-type: lower-roman;
-                display: list-item;
-            }
-            ul li {
-                list-style-type: disc;
-                display: list-item;
-            }
-        }
+        @apply pt-0 pb-8;
     }
+
     /**/
     /* End single page content section */
     /**/

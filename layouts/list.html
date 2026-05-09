@@ -6,9 +6,9 @@
 
   {{- if .Content }}
     <div class="page-content list-content">
-      {{ .Content }}
+        {{ .Content }}
     </div>
-    ---
+    <hr class="main-hr-bottom">
   {{- end }}
   {{ partial "section-pages-list.html" (dict "page" .) }}
 
